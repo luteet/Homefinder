@@ -1,5 +1,30 @@
 $(function(){
 
+    $('.featured__list--slider').slick({
+        slidesToShow: 4,
+        centerMode: false,
+        centerPadding: "0px",
+        responsive: [
+            {
+              breakpoint: 992,
+              settings: {
+                slidesToShow: 3,
+              }
+            },
+            {
+                breakpoint: 769,
+                settings: {
+                  slidesToShow: 2,
+                }
+              },
+              {
+                breakpoint: 426,
+                settings: {
+                  slidesToShow: 1,
+                }
+              }
+          ]
+    })
 
     let navElements = $('.header__burger--btn, .header__nav');
     $('.header__burger--btn').on('click', function() {
