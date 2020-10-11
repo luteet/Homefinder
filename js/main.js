@@ -1,30 +1,6 @@
 $(function(){
 
-    $('.featured__list--slider').slick({
-        slidesToShow: 4,
-        centerMode: false,
-        centerPadding: "0px",
-        responsive: [
-            {
-              breakpoint: 992,
-              settings: {
-                slidesToShow: 3,
-              }
-            },
-            {
-                breakpoint: 769,
-                settings: {
-                  slidesToShow: 2,
-                }
-              },
-              {
-                breakpoint: 426,
-                settings: {
-                  slidesToShow: 1,
-                }
-              }
-          ]
-    })
+    
 
     let navElements = $('.header__burger--btn, .header__nav');
     $('.header__burger--btn').on('click', function() {
@@ -127,20 +103,139 @@ $(function(){
         ifHeaderTop: ['top', 0],
         classAnchorForTop: true,
     });
-    let filterFormCheck = false, filterFormBtn;
-    $('.filter__nav--btn').on('click', function() {
-        if(filterFormCheck == false) {
-            filterFormCheck = true;
-            filterFormBtn = $(this);
+
+    $('.featured__list--slider').slick({
+        slidesToShow: 4,
+        centerMode: false,
+        centerPadding: "0px",
+        infinite: false,
+        //appendArrows: '.featured__slider--nav',
+        nextArrow: '<button type="button" class="slick-next slider__arrows slider__arrows--next" data-type-arrow="1"><svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 71 39" enable-background="new 0 0 71 39" xml:space="preserve"><polygon fill="#006450" points="71,19.5 68.3,16.8 68.3,16.8 51.8,0.3 49.1,3 65.6,19.5 49.1,36 51.8,38.7 68.3,22.2 68.3,22.2 71,19.5 71,19.5 "/><rect x="0" y="17.6" fill="#006450" width="68.8" height="3.8"/></svg></button>',
+        prevArrow: '<button type="button" class="slick-prev slider__arrows slider__arrows--prev" data-type-arrow="1"><svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 71 39" enable-background="new 0 0 71 39" xml:space="preserve"><polygon fill="#006450" points="71,19.5 68.3,16.8 68.3,16.8 51.8,0.3 49.1,3 65.6,19.5 49.1,36 51.8,38.7 68.3,22.2 68.3,22.2 71,19.5 71,19.5 "/><rect x="0" y="17.6" fill="#006450" width="68.8" height="3.8"/></svg></button>',
+        responsive: [
+            {
+              breakpoint: 992,
+              settings: {
+                slidesToShow: 3,
+              }
+            },
+            {
+                breakpoint: 769,
+                settings: {
+                  slidesToShow: 2,
+                }
+              },
+              {
+                breakpoint: 550,
+                settings: {
+                  slidesToShow: 1,
+                }
+              }
+          ]
+    })
+
+    /* function sliderTab(e) {
+        console.log('slide tab active')
+        $('.featured__list--slider').slick({
+            slidesToShow: 4,
+            centerMode: false,
+            centerPadding: "0px",
+            appendArrows: '.featured__slider--nav',
+            nextArrow: '<button type="button" class="slick-next slider__arrows slider__arrows--next"></button>',
+            prevArrow: '<button type="button" class="slick-prev slider__arrows slider__arrows--prev"></button>',
+            responsive: [
+                {
+                  breakpoint: 992,
+                  settings: {
+                    slidesToShow: 3,
+                  }
+                },
+                {
+                    breakpoint: 769,
+                    settings: {
+                      slidesToShow: 2,
+                    }
+                  },
+                  {
+                    breakpoint: 550,
+                    settings: {
+                      slidesToShow: 1,
+                    }
+                  }
+              ]
+        }).addClass('slider-active');
+    } */
+
+    function getSliderSettings(){
+        return  { 
+        slidesToShow: 4,
+        centerMode: false,
+        centerPadding: "0px",
+        infinite: false,
+        //appendArrows: '.featured__slider--nav',
+        nextArrow: '<button type="button" class="slick-next slider__arrows slider__arrows--next" data-type-arrow="1"><svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 71 39" enable-background="new 0 0 71 39" xml:space="preserve"><polygon fill="#006450" points="71,19.5 68.3,16.8 68.3,16.8 51.8,0.3 49.1,3 65.6,19.5 49.1,36 51.8,38.7 68.3,22.2 68.3,22.2 71,19.5 71,19.5 "/><rect x="0" y="17.6" fill="#006450" width="68.8" height="3.8"/></svg></button>',
+        prevArrow: '<button type="button" class="slick-prev slider__arrows slider__arrows--prev" data-type-arrow="1"><svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 71 39" enable-background="new 0 0 71 39" xml:space="preserve"><polygon fill="#006450" points="71,19.5 68.3,16.8 68.3,16.8 51.8,0.3 49.1,3 65.6,19.5 49.1,36 51.8,38.7 68.3,22.2 68.3,22.2 71,19.5 71,19.5 "/><rect x="0" y="17.6" fill="#006450" width="68.8" height="3.8"/></svg></button>',
+        responsive: [
+            {
+              breakpoint: 992,
+              settings: {
+                slidesToShow: 3,
+              }
+            },
+            {
+                breakpoint: 769,
+                settings: {
+                  slidesToShow: 2,
+                }
+              },
+              {
+                breakpoint: 550,
+                settings: {
+                  slidesToShow: 1,
+                }
+              }
+          ]
+    }
+    }
+
+    let btnTabCheck = false, btnTab = $('.btn__tab'), tabBlock, tabBlockId;
+    /* $.each($(btnTab), function() {
+        if($($(this).data('tab-for-block')).hasClass('slider')) {
+            sliderTab($(this).data('tab-for-block'));
+            console.log('i found this')
+            return false;
+        }
+    }); */
+
+    
+    
+    $('.btn__tab').on('click', function() {
+        if(btnTabCheck == false) {
+            btnTabCheck = true;
+            btnTab = $(this);tabBlock = $(btnTab.data('tab-for-block'));tabBlockId = $(btnTab.data('tab-block-id'));
             setTimeout(function() {
-                $('.filter__nav--btn, .filter__item').removeClass('active');
-                $('.filter__item').fadeOut(0);
-                filterFormBtn.addClass('active');
-                $('#' + filterFormBtn.data('filter-form') + '').fadeIn(500).addClass('active');
-                filterFormCheck = false;    
-            }, 100)
-            
+                btnTab.parent().find('.btn__tab').removeClass('active');
+                tabBlock.fadeOut(0).removeClass('active');
+                
+                
+                btnTab.addClass('active');
+                $(btnTab.data('tab-block-id')).fadeIn(500).addClass('active');
+                btnTabCheck = false;
+                if(tabBlock.hasClass('slider') && !tabBlock.hasClass('slider-active')) {
+                    //sliderTab(tabBlock);
+                    //$(tabBlock).on('')
+                   $(tabBlock).slick('destroy');
+                   $(tabBlock).slick(getSliderSettings());
+                    console.log('init');
+                }
+            }, 100);
         }
     });
+
+    /* $('.img-load-effect').on('load', function() {
+        $(this).addClass('active');
+    }); */
+
+    //$('.tab__block.slider').css('display', 'none');
 
 });
