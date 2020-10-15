@@ -405,10 +405,13 @@ $(function () {
     }
   });
 
-  /* $('.img-load-effect').on('load', function() {
-      $(this).addClass('active');
-  }); */
+  $('[data-placeholder]').focus(function() {
+    $(this).attr('placeholder', '');
+}).blur(function() {
+    $(this).attr('placeholder', $(this).data('placeholder'));
+});
 
-  //$('.tab__block.slider').css('display', 'none');
+
+
 
 });
