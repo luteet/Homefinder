@@ -2,6 +2,8 @@
 
 $(function () {
 
+  //$('body').addClass('js-on');
+
   var supportedWebpCheck = true;
   //image_srcNotWebp,
   //image_src_bg = '.webp-bg';
@@ -68,6 +70,8 @@ $(function () {
     }
     
   }
+
+  
     
   let scrollName, scrollElem, scrollTop, start_scroll = false;
     $('.btn-scroll').on('click', function (e) {
@@ -80,16 +84,33 @@ $(function () {
                 scrollTop = scrollElem.offset().top;
 
             if ($('.header').offset().top > scrollTop + 300) {
-                scrollTop = scrollTop - 50;
+                scrollTop = scrollTop - $('.header').height() - 10;
+            }
+            else if ($('.header').offset().top < scrollTop && scrollTop - $('.header').offset().top <= 300) {
+              scrollTop = scrollTop - $('.header').height() - 10;
+              
+            }
+
+            if($(this).hasClass('btn-scroll-last')) {
+              scrollTop = $(document).height() - $(window).height();
             }
 
             $('.header__burger--btn, .header__nav').removeClass('active');
             $('body').removeClass('lock');
 
 
-            $('html, body').animate({
+            
+
+            if ($('.header').offset().top > scrollTop && $('.header').offset().top - scrollTop <= 300 ) {
+              $('html, body').animate({
+                scrollTop: scrollTop
+            }, 1000);
+            }
+            else {
+              $('html, body').animate({
                 scrollTop: scrollTop
             }, 1500);
+            }
 
             setTimeout(function () {
                 start_scroll = false;
@@ -280,7 +301,7 @@ $(function () {
       
       } */
       footerListSlide();
-      console.log($(e.target))
+      //console.log($(e.target))
     }
 
   });
@@ -303,8 +324,13 @@ $(function () {
   $(window).resize(function () {
     customeMediaEvents($(window).width());
   });
-
-  $(".filter__form--select").customSelect("panel");
+  //$(".filter__form--select").fadeOut(0);
+  function startplugin() {
+    $(".filter__form--select").customSelect("panel")
+    $(".filter__form--select").fadeIn(500);
+  }
+  startplugin()
+  
 
   function hHeader(settings) {
 
@@ -471,5 +497,26 @@ $(function () {
     
   });
 
+  $('.btn-sign-up').magnificPopup({
+		type: 'inline',
+		preloader: false,
+		focus: '#name',
+
+		// When elemened is focused, some mobile browsers in some cases zoom in
+		// It looks not nice, so we disable it:
+		callbacks: {
+			beforeOpen: function() {
+				if($(window).width() < 700) {
+					this.st.focus = false;
+				} else {
+					this.st.focus = '#name';
+				}
+			}
+		}
+	});
+
+  AOS.init({
+    once: true
+  })
 
 });
