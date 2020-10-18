@@ -158,7 +158,6 @@ $(function () {
 
   $('.house-week__slider').slick({
     slidesToShow: 1,
-    //lazyLoad: 'ondemand',
     nextArrow: '<button type="button" class="slick-next slider__arrows slider__arrows--next" data-type-arrow="2"><svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 71 39" enable-background="new 0 0 71 39" xml:space="preserve"><polygon fill="#006450" points="71,19.5 68.3,16.8 68.3,16.8 51.8,0.3 49.1,3 65.6,19.5 49.1,36 51.8,38.7 68.3,22.2 68.3,22.2 71,19.5 71,19.5 "/><rect x="0" y="17.6" fill="#006450" width="68.8" height="3.8"/></svg></button>',
     prevArrow: '<button type="button" class="slick-prev slider__arrows slider__arrows--prev" data-type-arrow="2"><svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 71 39" enable-background="new 0 0 71 39" xml:space="preserve"><polygon fill="#006450" points="71,19.5 68.3,16.8 68.3,16.8 51.8,0.3 49.1,3 65.6,19.5 49.1,36 51.8,38.7 68.3,22.2 68.3,22.2 71,19.5 71,19.5 "/><rect x="0" y="17.6" fill="#006450" width="68.8" height="3.8"/></svg></button>',
     infinite: false,
@@ -173,7 +172,6 @@ $(function () {
 
   $('.reviews__slider').slick({
     slidesToShow: 1,
-    //lazyLoad: 'ondemand',
     nextArrow: '<button type="button" class="slick-next slider__arrows slider__arrows--next" data-type-arrow="1"><svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 71 39" enable-background="new 0 0 71 39" xml:space="preserve"><polygon fill="#006450" points="71,19.5 68.3,16.8 68.3,16.8 51.8,0.3 49.1,3 65.6,19.5 49.1,36 51.8,38.7 68.3,22.2 68.3,22.2 71,19.5 71,19.5 "/><rect x="0" y="17.6" fill="#006450" width="68.8" height="3.8"/></svg></button>',
     prevArrow: '<button type="button" class="slick-prev slider__arrows slider__arrows--prev" data-type-arrow="1"><svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 71 39" enable-background="new 0 0 71 39" xml:space="preserve"><polygon fill="#006450" points="71,19.5 68.3,16.8 68.3,16.8 51.8,0.3 49.1,3 65.6,19.5 49.1,36 51.8,38.7 68.3,22.2 68.3,22.2 71,19.5 71,19.5 "/><rect x="0" y="17.6" fill="#006450" width="68.8" height="3.8"/></svg></button>',
     infinite: false,
@@ -236,7 +234,6 @@ $(function () {
 
   let sliderArrows;
   $('body').on('click', function (e) {
-
 
     // ====================== <запоминание индекса слайда при нажатии на элементы управления> ======================
 
