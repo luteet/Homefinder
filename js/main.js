@@ -451,12 +451,7 @@ $(function () {
   }
 
   $('.slide-btn').on('click', function () {
-    if (!$(this).hasClass('active')) {
-      footerListSlide($(this));
-    }
-    else {
-      footerListSlide()
-    }
+    (!$(this).hasClass('active')) ? footerListSlide($(this)) : footerListSlide()
   });
 
   // ====================== </выпадашка для меню в футере> ======================
@@ -468,16 +463,8 @@ $(function () {
   $('.btn-sign-up').magnificPopup({
     type: 'inline',
     preloader: false,
-    focus: '#name',
-    callbacks: {
-      beforeOpen: function () {
-        if ($(window).width() < 700) {
-          this.st.focus = false;
-        } else {
-          this.st.focus = '#name';
-        }
-      }
-    }
+    focus: '#regist-name',
+    
   });
 
   // ====================== </попап регистрации> ======================
