@@ -264,12 +264,17 @@ $(function () {
   // ====================== <медиа запросы как в CSS> ======================
 
   function customeMediaEvents(e) {
+    console.log(e)
     if (e > 992) {
       navElements.removeClass('active').removeClass('anim-speed');
       $('body').removeClass('lock');
     }
     else if (e < 992) {
       navElements.addClass('anim-speed');
+    }
+    if (e > 426) {
+      footerListSlide('destroy');
+      console.log('active')
     }
   }
   customeMediaEvents($(window).width());
@@ -438,13 +443,18 @@ $(function () {
   // ====================== <выпадашка для меню в футере> ======================
 
   function footerListSlide(e) {
+    if(e == 'destroy') {
+      $('.slide-btn, .slide-list').removeClass('active') 
+      $('.slide-list').slideUp(0)
+    } 
     if ($(window).width() < 426) {
       $('.slide-btn, .slide-list').removeClass('active');
-      $('.slide-list').slideUp(500);
-      if (e != undefined) {
-        $(e).addClass('active').next('.slide-list').slideDown(500).addClass('active');
+      $('.slide-list').slideUp(250);
+      if (e != undefined && e != 'destroy') {
+        $(e).addClass('active').next('.slide-list').slideDown(250).addClass('active');
       }
     }
+    
     else {
       return false;
     }
